@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FilmProjesiDatabaseModelStoreContainer" CdmEntityContainer="FilmProjesiDatabaseEntities">
+    <EntitySetMapping Name="BuHaftaFilmYorumlari">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.BuHaftaFilmYorumlari">
+        <MappingFragment StoreEntitySet="BuHaftaFilmYorumlari">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yorumid" ColumnName="yorumid" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuHaftakiFilmKullaniciNotu">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.BuHaftakiFilmKullaniciNotu">
+        <MappingFragment StoreEntitySet="BuHaftakiFilmKullaniciNotu">
+          <ScalarProperty Name="filmnotu" ColumnName="filmnotu" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+          <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+          <ScalarProperty Name="kullanicinotid" ColumnName="kullanicinotid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuHaftakiFilmler">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.BuHaftakiFilmler">
+        <MappingFragment StoreEntitySet="BuHaftakiFilmler">
+          <ScalarProperty Name="genel_not" ColumnName="genel_not" />
+          <ScalarProperty Name="filmicerik" ColumnName="filmicerik" />
+          <ScalarProperty Name="filmresim" ColumnName="filmresim" />
+          <ScalarProperty Name="filmadi" ColumnName="filmadi" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GelecekHaftakiFilmler">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.GelecekHaftakiFilmler">
+        <MappingFragment StoreEntitySet="GelecekHaftakiFilmler">
+          <ScalarProperty Name="filmicerik" ColumnName="filmicerik" />
+          <ScalarProperty Name="filmresim" ColumnName="filmresim" />
+          <ScalarProperty Name="filmadi" ColumnName="filmadi" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Haberler">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Haberler">
+        <MappingFragment StoreEntitySet="Haberler">
+          <ScalarProperty Name="habermanset" ColumnName="habermanset" />
+          <ScalarProperty Name="habericerik" ColumnName="habericerik" />
+          <ScalarProperty Name="haberresim" ColumnName="haberresim" />
+          <ScalarProperty Name="haberadi" ColumnName="haberadi" />
+          <ScalarProperty Name="haberid" ColumnName="haberid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoriler">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Kategoriler">
+        <MappingFragment StoreEntitySet="Kategoriler">
+          <ScalarProperty Name="kategorifilmsayisi" ColumnName="kategorifilmsayisi" />
+          <ScalarProperty Name="kategoriadi" ColumnName="kategoriadi" />
+          <ScalarProperty Name="kategoriid" ColumnName="kategoriid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="kullaniciyetki" ColumnName="kullaniciyetki" />
+          <ScalarProperty Name="kullaniciemail" ColumnName="kullaniciemail" />
+          <ScalarProperty Name="kullanicisifre" ColumnName="kullanicisifre" />
+          <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+          <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListeliFilmKategori">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.ListeliFilmKategori">
+        <MappingFragment StoreEntitySet="ListeliFilmKategori">
+          <ScalarProperty Name="kategoriid" ColumnName="kategoriid" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListeliFilmler">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.ListeliFilmler">
+        <MappingFragment StoreEntitySet="ListeliFilmler">
+          <ScalarProperty Name="filmresim" ColumnName="filmresim" />
+          <ScalarProperty Name="filmicerik" ColumnName="filmicerik" />
+          <ScalarProperty Name="filmadi" ColumnName="filmadi" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListeliFilmOyuncu">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.ListeliFilmOyuncu">
+        <MappingFragment StoreEntitySet="ListeliFilmOyuncu">
+          <ScalarProperty Name="oyuncuid" ColumnName="oyuncuid" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListeliFilmYorumları">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.ListeliFilmYorumları">
+        <MappingFragment StoreEntitySet="ListeliFilmYorumları">
+          <ScalarProperty Name="yorumid" ColumnName="yorumid" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oyuncular">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Oyuncular">
+        <MappingFragment StoreEntitySet="Oyuncular">
+          <ScalarProperty Name="oyuncuresim" ColumnName="oyuncuresim" />
+          <ScalarProperty Name="oyuncudogumtarihi" ColumnName="oyuncudogumtarihi" />
+          <ScalarProperty Name="oyuncubiyografi" ColumnName="oyuncubiyografi" />
+          <ScalarProperty Name="oyuncuadi" ColumnName="oyuncuadi" />
+          <ScalarProperty Name="oyuncuid" ColumnName="oyuncuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yorumlar">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Yorumlar">
+        <MappingFragment StoreEntitySet="Yorumlar">
+          <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+          <ScalarProperty Name="yorumtarihi" ColumnName="yorumtarihi" />
+          <ScalarProperty Name="yorumsaati" ColumnName="yorumsaati" />
+          <ScalarProperty Name="yorum" ColumnName="yorum" />
+          <ScalarProperty Name="yorumid" ColumnName="yorumid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slider">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="sliderresim" ColumnName="sliderresim" />
+          <ScalarProperty Name="sliderbaslik" ColumnName="sliderbaslik" />
+          <ScalarProperty Name="sliderid" ColumnName="sliderid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SliderIcerik">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.SliderIcerik">
+        <MappingFragment StoreEntitySet="SliderIcerik">
+          <ScalarProperty Name="sliderid" ColumnName="sliderid" />
+          <ScalarProperty Name="slidericerik1" ColumnName="slidericerik" />
+          <ScalarProperty Name="slidericerikresim" ColumnName="slidericerikresim" />
+          <ScalarProperty Name="slidericerikbaslik" ColumnName="slidericerikbaslik" />
+          <ScalarProperty Name="slidericerikid" ColumnName="slidericerikid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FilmElestirileri">
+      <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.FilmElestirileri">
+        <MappingFragment StoreEntitySet="FilmElestirileri">
+          <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+          <ScalarProperty Name="filmid" ColumnName="filmid" />
+          <ScalarProperty Name="elestiriicerik" ColumnName="elestiriicerik" />
+          <ScalarProperty Name="elestiriid" ColumnName="elestiriid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

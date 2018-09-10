@@ -1,0 +1,1047 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FilmProjesiDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BuHaftaFilmYorumlari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="filmid" Type="int" Nullable="false" />
+          <Property Name="yorumid" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BuHaftakiFilmKullaniciNotu">
+          <Key>
+            <PropertyRef Name="kullanicinotid" />
+          </Key>
+          <Property Name="kullanicinotid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciid" Type="int" />
+          <Property Name="filmid" Type="int" />
+          <Property Name="filmnotu" Type="int" />
+        </EntityType>
+        <EntityType Name="BuHaftakiFilmler">
+          <Key>
+            <PropertyRef Name="filmid" />
+          </Key>
+          <Property Name="filmid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filmadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="filmresim" Type="nvarchar" MaxLength="100" />
+          <Property Name="filmicerik" Type="text" />
+          <Property Name="genel_not" Type="int" />
+        </EntityType>
+        <EntityType Name="FilmElestirileri">
+          <Key>
+            <PropertyRef Name="elestiriid" />
+          </Key>
+          <Property Name="elestiriid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="elestiriicerik" Type="text" />
+          <Property Name="filmid" Type="int" />
+          <Property Name="kullaniciid" Type="int" />
+        </EntityType>
+        <EntityType Name="GelecekHaftakiFilmler">
+          <Key>
+            <PropertyRef Name="filmid" />
+          </Key>
+          <Property Name="filmid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filmadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="filmresim" Type="nvarchar" MaxLength="50" />
+          <Property Name="filmicerik" Type="text" />
+        </EntityType>
+        <EntityType Name="Haberler">
+          <Key>
+            <PropertyRef Name="haberid" />
+          </Key>
+          <Property Name="haberid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="haberadi" Type="nvarchar" MaxLength="150" />
+          <Property Name="haberresim" Type="nvarchar" MaxLength="150" />
+          <Property Name="habericerik" Type="text" />
+          <Property Name="habermanset" Type="bit" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="kategoriid" />
+          </Key>
+          <Property Name="kategoriid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="kategorifilmsayisi" Type="int" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="kullaniciid" />
+          </Key>
+          <Property Name="kullaniciid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="kullanicisifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="kullaniciemail" Type="nvarchar" MaxLength="100" />
+          <Property Name="kullaniciyetki" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ListeliFilmKategori">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filmid" Type="int" Nullable="false" />
+          <Property Name="kategoriid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ListeliFilmler">
+          <Key>
+            <PropertyRef Name="filmid" />
+          </Key>
+          <Property Name="filmid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filmadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="filmicerik" Type="text" />
+          <Property Name="filmresim" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ListeliFilmOyuncu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filmid" Type="int" />
+          <Property Name="oyuncuid" Type="int" />
+        </EntityType>
+        <EntityType Name="ListeliFilmYorumları">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filmid" Type="int" />
+          <Property Name="yorumid" Type="int" />
+        </EntityType>
+        <EntityType Name="Oyuncular">
+          <Key>
+            <PropertyRef Name="oyuncuid" />
+          </Key>
+          <Property Name="oyuncuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oyuncuadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="oyuncubiyografi" Type="text" />
+          <Property Name="oyuncudogumtarihi" Type="nvarchar" MaxLength="50" />
+          <Property Name="oyuncuresim" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="sliderid" />
+          </Key>
+          <Property Name="sliderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sliderbaslik" Type="nvarchar" MaxLength="50" />
+          <Property Name="sliderresim" Type="nvarchar" MaxLength="150" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FilmProjesiDatabase.dbo.SliderIcerik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SliderIcerik">
+          <Key>
+            <PropertyRef Name="slidericerikid" />
+          </Key>
+          <Property Name="slidericerikid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="slidericerikbaslik" Type="nvarchar" MaxLength="150" />
+          <Property Name="slidericerikresim" Type="nvarchar" MaxLength="150" />
+          <Property Name="slidericerik" Type="text" />
+          <Property Name="sliderid" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="yorumid" />
+          </Key>
+          <Property Name="yorumid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yorum" Type="text" />
+          <Property Name="yorumsaati" Type="nvarchar" MaxLength="50" />
+          <Property Name="yorumtarihi" Type="nvarchar" MaxLength="50" />
+          <Property Name="kullaniciid" Type="int" />
+        </EntityType>
+        <Association Name="FK_BuHaftaFilmYorumlari_BuHaftakiFilmler">
+          <End Role="BuHaftakiFilmler" Type="Self.BuHaftakiFilmler" Multiplicity="1" />
+          <End Role="BuHaftaFilmYorumlari" Type="Self.BuHaftaFilmYorumlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuHaftakiFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="BuHaftaFilmYorumlari">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuHaftaFilmYorumlari_Yorumlar">
+          <End Role="Yorumlar" Type="Self.Yorumlar" Multiplicity="1" />
+          <End Role="BuHaftaFilmYorumlari" Type="Self.BuHaftaFilmYorumlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yorumlar">
+              <PropertyRef Name="yorumid" />
+            </Principal>
+            <Dependent Role="BuHaftaFilmYorumlari">
+              <PropertyRef Name="yorumid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler">
+          <End Role="BuHaftakiFilmler" Type="Self.BuHaftakiFilmler" Multiplicity="0..1" />
+          <End Role="BuHaftakiFilmKullaniciNotu" Type="Self.BuHaftakiFilmKullaniciNotu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuHaftakiFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="BuHaftakiFilmKullaniciNotu">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuHaftakiFilmKullaniciNotu_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="BuHaftakiFilmKullaniciNotu" Type="Self.BuHaftakiFilmKullaniciNotu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="kullaniciid" />
+            </Principal>
+            <Dependent Role="BuHaftakiFilmKullaniciNotu">
+              <PropertyRef Name="kullaniciid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmElestirileri_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="FilmElestirileri" Type="Self.FilmElestirileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="kullaniciid" />
+            </Principal>
+            <Dependent Role="FilmElestirileri">
+              <PropertyRef Name="kullaniciid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmElestirileri_ListeliFilmler">
+          <End Role="ListeliFilmler" Type="Self.ListeliFilmler" Multiplicity="0..1" />
+          <End Role="FilmElestirileri" Type="Self.FilmElestirileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListeliFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="FilmElestirileri">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmKategori_Kategoriler1">
+          <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="1" />
+          <End Role="ListeliFilmKategori" Type="Self.ListeliFilmKategori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriler">
+              <PropertyRef Name="kategoriid" />
+            </Principal>
+            <Dependent Role="ListeliFilmKategori">
+              <PropertyRef Name="kategoriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmKategori_ListeliFilmler1">
+          <End Role="ListeliFilmler" Type="Self.ListeliFilmler" Multiplicity="1" />
+          <End Role="ListeliFilmKategori" Type="Self.ListeliFilmKategori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListeliFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="ListeliFilmKategori">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmOyuncu_ListeliFilmler">
+          <End Role="ListeliFilmler" Type="Self.ListeliFilmler" Multiplicity="0..1" />
+          <End Role="ListeliFilmOyuncu" Type="Self.ListeliFilmOyuncu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListeliFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="ListeliFilmOyuncu">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmOyuncu_Oyuncular">
+          <End Role="Oyuncular" Type="Self.Oyuncular" Multiplicity="0..1" />
+          <End Role="ListeliFilmOyuncu" Type="Self.ListeliFilmOyuncu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oyuncular">
+              <PropertyRef Name="oyuncuid" />
+            </Principal>
+            <Dependent Role="ListeliFilmOyuncu">
+              <PropertyRef Name="oyuncuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmYorumları_ListeliFilmler">
+          <End Role="ListeliFilmler" Type="Self.ListeliFilmler" Multiplicity="0..1" />
+          <End Role="ListeliFilmYorumları" Type="Self.ListeliFilmYorumları" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListeliFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="ListeliFilmYorumları">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmYorumları_Yorumlar">
+          <End Role="Yorumlar" Type="Self.Yorumlar" Multiplicity="0..1" />
+          <End Role="ListeliFilmYorumları" Type="Self.ListeliFilmYorumları" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yorumlar">
+              <PropertyRef Name="yorumid" />
+            </Principal>
+            <Dependent Role="ListeliFilmYorumları">
+              <PropertyRef Name="yorumid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SliderIcerik_Slider">
+          <End Role="Slider" Type="Self.Slider" Multiplicity="0..1" />
+          <End Role="SliderIcerik" Type="Self.SliderIcerik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Slider">
+              <PropertyRef Name="sliderid" />
+            </Principal>
+            <Dependent Role="SliderIcerik">
+              <PropertyRef Name="sliderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yorumlar_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+          <End Role="Yorumlar" Type="Self.Yorumlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="kullaniciid" />
+            </Principal>
+            <Dependent Role="Yorumlar">
+              <PropertyRef Name="kullaniciid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FilmProjesiDatabaseModelStoreContainer">
+          <EntitySet Name="BuHaftaFilmYorumlari" EntityType="Self.BuHaftaFilmYorumlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuHaftakiFilmKullaniciNotu" EntityType="Self.BuHaftakiFilmKullaniciNotu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuHaftakiFilmler" EntityType="Self.BuHaftakiFilmler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilmElestirileri" EntityType="Self.FilmElestirileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GelecekHaftakiFilmler" EntityType="Self.GelecekHaftakiFilmler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Haberler" EntityType="Self.Haberler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListeliFilmKategori" EntityType="Self.ListeliFilmKategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListeliFilmler" EntityType="Self.ListeliFilmler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListeliFilmOyuncu" EntityType="Self.ListeliFilmOyuncu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListeliFilmYorumları" EntityType="Self.ListeliFilmYorumları" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oyuncular" EntityType="Self.Oyuncular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SliderIcerik" EntityType="Self.SliderIcerik" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SliderIcerik].[slidericerikid] AS [slidericerikid], 
+    [SliderIcerik].[slidericerikbaslik] AS [slidericerikbaslik], 
+    [SliderIcerik].[slidericerikresim] AS [slidericerikresim], 
+    [SliderIcerik].[slidericerik] AS [slidericerik], 
+    [SliderIcerik].[sliderid] AS [sliderid]
+    FROM [dbo].[SliderIcerik] AS [SliderIcerik]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BuHaftaFilmYorumlari_BuHaftakiFilmler" Association="Self.FK_BuHaftaFilmYorumlari_BuHaftakiFilmler">
+            <End Role="BuHaftakiFilmler" EntitySet="BuHaftakiFilmler" />
+            <End Role="BuHaftaFilmYorumlari" EntitySet="BuHaftaFilmYorumlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuHaftaFilmYorumlari_Yorumlar" Association="Self.FK_BuHaftaFilmYorumlari_Yorumlar">
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+            <End Role="BuHaftaFilmYorumlari" EntitySet="BuHaftaFilmYorumlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler" Association="Self.FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler">
+            <End Role="BuHaftakiFilmler" EntitySet="BuHaftakiFilmler" />
+            <End Role="BuHaftakiFilmKullaniciNotu" EntitySet="BuHaftakiFilmKullaniciNotu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuHaftakiFilmKullaniciNotu_Kullanicilar" Association="Self.FK_BuHaftakiFilmKullaniciNotu_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="BuHaftakiFilmKullaniciNotu" EntitySet="BuHaftakiFilmKullaniciNotu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmElestirileri_Kullanicilar" Association="Self.FK_FilmElestirileri_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="FilmElestirileri" EntitySet="FilmElestirileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmElestirileri_ListeliFilmler" Association="Self.FK_FilmElestirileri_ListeliFilmler">
+            <End Role="ListeliFilmler" EntitySet="ListeliFilmler" />
+            <End Role="FilmElestirileri" EntitySet="FilmElestirileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmKategori_Kategoriler1" Association="Self.FK_ListeliFilmKategori_Kategoriler1">
+            <End Role="Kategoriler" EntitySet="Kategoriler" />
+            <End Role="ListeliFilmKategori" EntitySet="ListeliFilmKategori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmKategori_ListeliFilmler1" Association="Self.FK_ListeliFilmKategori_ListeliFilmler1">
+            <End Role="ListeliFilmler" EntitySet="ListeliFilmler" />
+            <End Role="ListeliFilmKategori" EntitySet="ListeliFilmKategori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmOyuncu_ListeliFilmler" Association="Self.FK_ListeliFilmOyuncu_ListeliFilmler">
+            <End Role="ListeliFilmler" EntitySet="ListeliFilmler" />
+            <End Role="ListeliFilmOyuncu" EntitySet="ListeliFilmOyuncu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmOyuncu_Oyuncular" Association="Self.FK_ListeliFilmOyuncu_Oyuncular">
+            <End Role="Oyuncular" EntitySet="Oyuncular" />
+            <End Role="ListeliFilmOyuncu" EntitySet="ListeliFilmOyuncu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmYorumları_ListeliFilmler" Association="Self.FK_ListeliFilmYorumları_ListeliFilmler">
+            <End Role="ListeliFilmler" EntitySet="ListeliFilmler" />
+            <End Role="ListeliFilmYorumları" EntitySet="ListeliFilmYorumları" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmYorumları_Yorumlar" Association="Self.FK_ListeliFilmYorumları_Yorumlar">
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+            <End Role="ListeliFilmYorumları" EntitySet="ListeliFilmYorumları" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SliderIcerik_Slider" Association="Self.FK_SliderIcerik_Slider">
+            <End Role="Slider" EntitySet="Slider" />
+            <End Role="SliderIcerik" EntitySet="SliderIcerik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorumlar_Kullanicilar" Association="Self.FK_Yorumlar_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FilmProjesiDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FilmProjesiDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BuHaftaFilmYorumlari" EntityType="FilmProjesiDatabaseModel.BuHaftaFilmYorumlari" />
+          <EntitySet Name="BuHaftakiFilmKullaniciNotu" EntityType="FilmProjesiDatabaseModel.BuHaftakiFilmKullaniciNotu" />
+          <EntitySet Name="BuHaftakiFilmler" EntityType="FilmProjesiDatabaseModel.BuHaftakiFilmler" />
+          <EntitySet Name="GelecekHaftakiFilmler" EntityType="FilmProjesiDatabaseModel.GelecekHaftakiFilmler" />
+          <EntitySet Name="Haberler" EntityType="FilmProjesiDatabaseModel.Haberler" />
+          <EntitySet Name="Kategoriler" EntityType="FilmProjesiDatabaseModel.Kategoriler" />
+          <EntitySet Name="Kullanicilar" EntityType="FilmProjesiDatabaseModel.Kullanicilar" />
+          <EntitySet Name="ListeliFilmKategori" EntityType="FilmProjesiDatabaseModel.ListeliFilmKategori" />
+          <EntitySet Name="ListeliFilmler" EntityType="FilmProjesiDatabaseModel.ListeliFilmler" />
+          <EntitySet Name="ListeliFilmOyuncu" EntityType="FilmProjesiDatabaseModel.ListeliFilmOyuncu" />
+          <EntitySet Name="ListeliFilmYorumları" EntityType="FilmProjesiDatabaseModel.ListeliFilmYorumları" />
+          <EntitySet Name="Oyuncular" EntityType="FilmProjesiDatabaseModel.Oyuncular" />
+          <EntitySet Name="sysdiagrams" EntityType="FilmProjesiDatabaseModel.sysdiagrams" />
+          <EntitySet Name="Yorumlar" EntityType="FilmProjesiDatabaseModel.Yorumlar" />
+          <AssociationSet Name="FK_BuHaftaFilmYorumlari_BuHaftakiFilmler" Association="FilmProjesiDatabaseModel.FK_BuHaftaFilmYorumlari_BuHaftakiFilmler">
+            <End Role="BuHaftakiFilmler" EntitySet="BuHaftakiFilmler" />
+            <End Role="BuHaftaFilmYorumlari" EntitySet="BuHaftaFilmYorumlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuHaftaFilmYorumlari_Yorumlar" Association="FilmProjesiDatabaseModel.FK_BuHaftaFilmYorumlari_Yorumlar">
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+            <End Role="BuHaftaFilmYorumlari" EntitySet="BuHaftaFilmYorumlari" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler" Association="FilmProjesiDatabaseModel.FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler">
+            <End Role="BuHaftakiFilmler" EntitySet="BuHaftakiFilmler" />
+            <End Role="BuHaftakiFilmKullaniciNotu" EntitySet="BuHaftakiFilmKullaniciNotu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuHaftakiFilmKullaniciNotu_Kullanicilar" Association="FilmProjesiDatabaseModel.FK_BuHaftakiFilmKullaniciNotu_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="BuHaftakiFilmKullaniciNotu" EntitySet="BuHaftakiFilmKullaniciNotu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmKategori_Kategoriler1" Association="FilmProjesiDatabaseModel.FK_ListeliFilmKategori_Kategoriler1">
+            <End Role="Kategoriler" EntitySet="Kategoriler" />
+            <End Role="ListeliFilmKategori" EntitySet="ListeliFilmKategori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorumlar_Kullanicilar" Association="FilmProjesiDatabaseModel.FK_Yorumlar_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmKategori_ListeliFilmler1" Association="FilmProjesiDatabaseModel.FK_ListeliFilmKategori_ListeliFilmler1">
+            <End Role="ListeliFilmler" EntitySet="ListeliFilmler" />
+            <End Role="ListeliFilmKategori" EntitySet="ListeliFilmKategori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmOyuncu_ListeliFilmler" Association="FilmProjesiDatabaseModel.FK_ListeliFilmOyuncu_ListeliFilmler">
+            <End Role="ListeliFilmler" EntitySet="ListeliFilmler" />
+            <End Role="ListeliFilmOyuncu" EntitySet="ListeliFilmOyuncu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmYorumları_ListeliFilmler" Association="FilmProjesiDatabaseModel.FK_ListeliFilmYorumları_ListeliFilmler">
+            <End Role="ListeliFilmler" EntitySet="ListeliFilmler" />
+            <End Role="ListeliFilmYorumları" EntitySet="ListeliFilmYorumları" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmOyuncu_Oyuncular" Association="FilmProjesiDatabaseModel.FK_ListeliFilmOyuncu_Oyuncular">
+            <End Role="Oyuncular" EntitySet="Oyuncular" />
+            <End Role="ListeliFilmOyuncu" EntitySet="ListeliFilmOyuncu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListeliFilmYorumları_Yorumlar" Association="FilmProjesiDatabaseModel.FK_ListeliFilmYorumları_Yorumlar">
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+            <End Role="ListeliFilmYorumları" EntitySet="ListeliFilmYorumları" />
+          </AssociationSet>
+          <EntitySet Name="Slider" EntityType="FilmProjesiDatabaseModel.Slider" />
+          <EntitySet Name="SliderIcerik" EntityType="FilmProjesiDatabaseModel.SliderIcerik" />
+          <AssociationSet Name="FK_SliderIcerik_Slider" Association="FilmProjesiDatabaseModel.FK_SliderIcerik_Slider">
+            <End Role="Slider" EntitySet="Slider" />
+            <End Role="SliderIcerik" EntitySet="SliderIcerik" />
+          </AssociationSet>
+          <EntitySet Name="FilmElestirileri" EntityType="FilmProjesiDatabaseModel.FilmElestirileri" />
+          <AssociationSet Name="FK_FilmElestirileri_Kullanicilar" Association="FilmProjesiDatabaseModel.FK_FilmElestirileri_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="FilmElestirileri" EntitySet="FilmElestirileri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmElestirileri_ListeliFilmler" Association="FilmProjesiDatabaseModel.FK_FilmElestirileri_ListeliFilmler">
+            <End Role="ListeliFilmler" EntitySet="ListeliFilmler" />
+            <End Role="FilmElestirileri" EntitySet="FilmElestirileri" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BuHaftaFilmYorumlari">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="filmid" Type="Int32" Nullable="false" />
+          <Property Name="yorumid" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="BuHaftakiFilmler" Relationship="FilmProjesiDatabaseModel.FK_BuHaftaFilmYorumlari_BuHaftakiFilmler" FromRole="BuHaftaFilmYorumlari" ToRole="BuHaftakiFilmler" />
+          <NavigationProperty Name="Yorumlar" Relationship="FilmProjesiDatabaseModel.FK_BuHaftaFilmYorumlari_Yorumlar" FromRole="BuHaftaFilmYorumlari" ToRole="Yorumlar" />
+        </EntityType>
+        <EntityType Name="BuHaftakiFilmKullaniciNotu">
+          <Key>
+            <PropertyRef Name="kullanicinotid" />
+          </Key>
+          <Property Name="kullanicinotid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciid" Type="Int32" />
+          <Property Name="filmid" Type="Int32" />
+          <Property Name="filmnotu" Type="Int32" />
+          <NavigationProperty Name="BuHaftakiFilmler" Relationship="FilmProjesiDatabaseModel.FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler" FromRole="BuHaftakiFilmKullaniciNotu" ToRole="BuHaftakiFilmler" />
+          <NavigationProperty Name="Kullanicilar" Relationship="FilmProjesiDatabaseModel.FK_BuHaftakiFilmKullaniciNotu_Kullanicilar" FromRole="BuHaftakiFilmKullaniciNotu" ToRole="Kullanicilar" />
+        </EntityType>
+        <EntityType Name="BuHaftakiFilmler">
+          <Key>
+            <PropertyRef Name="filmid" />
+          </Key>
+          <Property Name="filmid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filmadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="filmresim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="filmicerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="genel_not" Type="Int32" />
+          <NavigationProperty Name="BuHaftaFilmYorumlari" Relationship="FilmProjesiDatabaseModel.FK_BuHaftaFilmYorumlari_BuHaftakiFilmler" FromRole="BuHaftakiFilmler" ToRole="BuHaftaFilmYorumlari" />
+          <NavigationProperty Name="BuHaftakiFilmKullaniciNotu" Relationship="FilmProjesiDatabaseModel.FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler" FromRole="BuHaftakiFilmler" ToRole="BuHaftakiFilmKullaniciNotu" />
+        </EntityType>
+        <EntityType Name="GelecekHaftakiFilmler">
+          <Key>
+            <PropertyRef Name="filmid" />
+          </Key>
+          <Property Name="filmid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filmadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="filmresim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="filmicerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Haberler">
+          <Key>
+            <PropertyRef Name="haberid" />
+          </Key>
+          <Property Name="haberid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="haberadi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="haberresim" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="habericerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="habermanset" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="kategoriid" />
+          </Key>
+          <Property Name="kategoriid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kategorifilmsayisi" Type="Int32" />
+          <NavigationProperty Name="ListeliFilmKategori" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmKategori_Kategoriler1" FromRole="Kategoriler" ToRole="ListeliFilmKategori" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="kullaniciid" />
+          </Key>
+          <Property Name="kullaniciid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kullanicisifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kullaniciemail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BuHaftakiFilmKullaniciNotu" Relationship="FilmProjesiDatabaseModel.FK_BuHaftakiFilmKullaniciNotu_Kullanicilar" FromRole="Kullanicilar" ToRole="BuHaftakiFilmKullaniciNotu" />
+          <NavigationProperty Name="Yorumlar" Relationship="FilmProjesiDatabaseModel.FK_Yorumlar_Kullanicilar" FromRole="Kullanicilar" ToRole="Yorumlar" />
+          <Property Name="kullaniciyetki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FilmElestirileri" Relationship="FilmProjesiDatabaseModel.FK_FilmElestirileri_Kullanicilar" FromRole="Kullanicilar" ToRole="FilmElestirileri" />
+        </EntityType>
+        <EntityType Name="ListeliFilmKategori">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filmid" Type="Int32" Nullable="false" />
+          <Property Name="kategoriid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kategoriler" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmKategori_Kategoriler1" FromRole="ListeliFilmKategori" ToRole="Kategoriler" />
+          <NavigationProperty Name="ListeliFilmler" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmKategori_ListeliFilmler1" FromRole="ListeliFilmKategori" ToRole="ListeliFilmler" />
+        </EntityType>
+        <EntityType Name="ListeliFilmler">
+          <Key>
+            <PropertyRef Name="filmid" />
+          </Key>
+          <Property Name="filmid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filmadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="filmicerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="filmresim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ListeliFilmKategori" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmKategori_ListeliFilmler1" FromRole="ListeliFilmler" ToRole="ListeliFilmKategori" />
+          <NavigationProperty Name="ListeliFilmOyuncu" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmOyuncu_ListeliFilmler" FromRole="ListeliFilmler" ToRole="ListeliFilmOyuncu" />
+          <NavigationProperty Name="ListeliFilmYorumları" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmYorumları_ListeliFilmler" FromRole="ListeliFilmler" ToRole="ListeliFilmYorumları" />
+          <NavigationProperty Name="FilmElestirileri" Relationship="FilmProjesiDatabaseModel.FK_FilmElestirileri_ListeliFilmler" FromRole="ListeliFilmler" ToRole="FilmElestirileri" />
+        </EntityType>
+        <EntityType Name="ListeliFilmOyuncu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filmid" Type="Int32" />
+          <Property Name="oyuncuid" Type="Int32" />
+          <NavigationProperty Name="ListeliFilmler" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmOyuncu_ListeliFilmler" FromRole="ListeliFilmOyuncu" ToRole="ListeliFilmler" />
+          <NavigationProperty Name="Oyuncular" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmOyuncu_Oyuncular" FromRole="ListeliFilmOyuncu" ToRole="Oyuncular" />
+        </EntityType>
+        <EntityType Name="ListeliFilmYorumları">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filmid" Type="Int32" />
+          <Property Name="yorumid" Type="Int32" />
+          <NavigationProperty Name="ListeliFilmler" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmYorumları_ListeliFilmler" FromRole="ListeliFilmYorumları" ToRole="ListeliFilmler" />
+          <NavigationProperty Name="Yorumlar" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmYorumları_Yorumlar" FromRole="ListeliFilmYorumları" ToRole="Yorumlar" />
+        </EntityType>
+        <EntityType Name="Oyuncular">
+          <Key>
+            <PropertyRef Name="oyuncuid" />
+          </Key>
+          <Property Name="oyuncuid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oyuncuadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oyuncubiyografi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="oyuncudogumtarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ListeliFilmOyuncu" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmOyuncu_Oyuncular" FromRole="Oyuncular" ToRole="ListeliFilmOyuncu" />
+          <Property Name="oyuncuresim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="yorumid" />
+          </Key>
+          <Property Name="yorumid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yorum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="yorumsaati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yorumtarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kullaniciid" Type="Int32" />
+          <NavigationProperty Name="BuHaftaFilmYorumlari" Relationship="FilmProjesiDatabaseModel.FK_BuHaftaFilmYorumlari_Yorumlar" FromRole="Yorumlar" ToRole="BuHaftaFilmYorumlari" />
+          <NavigationProperty Name="Kullanicilar" Relationship="FilmProjesiDatabaseModel.FK_Yorumlar_Kullanicilar" FromRole="Yorumlar" ToRole="Kullanicilar" />
+          <NavigationProperty Name="ListeliFilmYorumları" Relationship="FilmProjesiDatabaseModel.FK_ListeliFilmYorumları_Yorumlar" FromRole="Yorumlar" ToRole="ListeliFilmYorumları" />
+        </EntityType>
+        <Association Name="FK_BuHaftaFilmYorumlari_BuHaftakiFilmler">
+          <End Type="FilmProjesiDatabaseModel.BuHaftakiFilmler" Role="BuHaftakiFilmler" Multiplicity="1" />
+          <End Type="FilmProjesiDatabaseModel.BuHaftaFilmYorumlari" Role="BuHaftaFilmYorumlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuHaftakiFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="BuHaftaFilmYorumlari">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuHaftaFilmYorumlari_Yorumlar">
+          <End Type="FilmProjesiDatabaseModel.Yorumlar" Role="Yorumlar" Multiplicity="1" />
+          <End Type="FilmProjesiDatabaseModel.BuHaftaFilmYorumlari" Role="BuHaftaFilmYorumlari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yorumlar">
+              <PropertyRef Name="yorumid" />
+            </Principal>
+            <Dependent Role="BuHaftaFilmYorumlari">
+              <PropertyRef Name="yorumid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler">
+          <End Type="FilmProjesiDatabaseModel.BuHaftakiFilmler" Role="BuHaftakiFilmler" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.BuHaftakiFilmKullaniciNotu" Role="BuHaftakiFilmKullaniciNotu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuHaftakiFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="BuHaftakiFilmKullaniciNotu">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuHaftakiFilmKullaniciNotu_Kullanicilar">
+          <End Type="FilmProjesiDatabaseModel.Kullanicilar" Role="Kullanicilar" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.BuHaftakiFilmKullaniciNotu" Role="BuHaftakiFilmKullaniciNotu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="kullaniciid" />
+            </Principal>
+            <Dependent Role="BuHaftakiFilmKullaniciNotu">
+              <PropertyRef Name="kullaniciid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmKategori_Kategoriler1">
+          <End Type="FilmProjesiDatabaseModel.Kategoriler" Role="Kategoriler" Multiplicity="1" />
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmKategori" Role="ListeliFilmKategori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriler">
+              <PropertyRef Name="kategoriid" />
+            </Principal>
+            <Dependent Role="ListeliFilmKategori">
+              <PropertyRef Name="kategoriid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yorumlar_Kullanicilar">
+          <End Type="FilmProjesiDatabaseModel.Kullanicilar" Role="Kullanicilar" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.Yorumlar" Role="Yorumlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="kullaniciid" />
+            </Principal>
+            <Dependent Role="Yorumlar">
+              <PropertyRef Name="kullaniciid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmKategori_ListeliFilmler1">
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmler" Role="ListeliFilmler" Multiplicity="1" />
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmKategori" Role="ListeliFilmKategori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListeliFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="ListeliFilmKategori">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmOyuncu_ListeliFilmler">
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmler" Role="ListeliFilmler" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmOyuncu" Role="ListeliFilmOyuncu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListeliFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="ListeliFilmOyuncu">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmYorumları_ListeliFilmler">
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmler" Role="ListeliFilmler" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmYorumları" Role="ListeliFilmYorumları" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListeliFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="ListeliFilmYorumları">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmOyuncu_Oyuncular">
+          <End Type="FilmProjesiDatabaseModel.Oyuncular" Role="Oyuncular" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmOyuncu" Role="ListeliFilmOyuncu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oyuncular">
+              <PropertyRef Name="oyuncuid" />
+            </Principal>
+            <Dependent Role="ListeliFilmOyuncu">
+              <PropertyRef Name="oyuncuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListeliFilmYorumları_Yorumlar">
+          <End Type="FilmProjesiDatabaseModel.Yorumlar" Role="Yorumlar" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmYorumları" Role="ListeliFilmYorumları" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yorumlar">
+              <PropertyRef Name="yorumid" />
+            </Principal>
+            <Dependent Role="ListeliFilmYorumları">
+              <PropertyRef Name="yorumid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="sliderid" />
+          </Key>
+          <Property Name="sliderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sliderbaslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sliderresim" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SliderIcerik" Relationship="FilmProjesiDatabaseModel.FK_SliderIcerik_Slider" FromRole="Slider" ToRole="SliderIcerik" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SliderIcerik">
+          <Key>
+            <PropertyRef Name="slidericerikid" />
+          </Key>
+          <Property Name="slidericerikid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="slidericerikbaslik" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="slidericerikresim" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="slidericerik1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sliderid" Type="Int32" />
+          <NavigationProperty Name="Slider" Relationship="FilmProjesiDatabaseModel.FK_SliderIcerik_Slider" FromRole="SliderIcerik" ToRole="Slider" />
+        </EntityType>
+        <Association Name="FK_SliderIcerik_Slider">
+          <End Type="FilmProjesiDatabaseModel.Slider" Role="Slider" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.SliderIcerik" Role="SliderIcerik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Slider">
+              <PropertyRef Name="sliderid" />
+            </Principal>
+            <Dependent Role="SliderIcerik">
+              <PropertyRef Name="sliderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FilmElestirileri">
+          <Key>
+            <PropertyRef Name="elestiriid" />
+          </Key>
+          <Property Name="elestiriid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="elestiriicerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="filmid" Type="Int32" />
+          <Property Name="kullaniciid" Type="Int32" />
+          <NavigationProperty Name="Kullanicilar" Relationship="FilmProjesiDatabaseModel.FK_FilmElestirileri_Kullanicilar" FromRole="FilmElestirileri" ToRole="Kullanicilar" />
+          <NavigationProperty Name="ListeliFilmler" Relationship="FilmProjesiDatabaseModel.FK_FilmElestirileri_ListeliFilmler" FromRole="FilmElestirileri" ToRole="ListeliFilmler" />
+        </EntityType>
+        <Association Name="FK_FilmElestirileri_Kullanicilar">
+          <End Type="FilmProjesiDatabaseModel.Kullanicilar" Role="Kullanicilar" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.FilmElestirileri" Role="FilmElestirileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="kullaniciid" />
+            </Principal>
+            <Dependent Role="FilmElestirileri">
+              <PropertyRef Name="kullaniciid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmElestirileri_ListeliFilmler">
+          <End Type="FilmProjesiDatabaseModel.ListeliFilmler" Role="ListeliFilmler" Multiplicity="0..1" />
+          <End Type="FilmProjesiDatabaseModel.FilmElestirileri" Role="FilmElestirileri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListeliFilmler">
+              <PropertyRef Name="filmid" />
+            </Principal>
+            <Dependent Role="FilmElestirileri">
+              <PropertyRef Name="filmid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FilmProjesiDatabaseModelStoreContainer" CdmEntityContainer="FilmProjesiDatabaseEntities">
+          <EntitySetMapping Name="BuHaftaFilmYorumlari">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.BuHaftaFilmYorumlari">
+              <MappingFragment StoreEntitySet="BuHaftaFilmYorumlari">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="yorumid" ColumnName="yorumid" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuHaftakiFilmKullaniciNotu">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.BuHaftakiFilmKullaniciNotu">
+              <MappingFragment StoreEntitySet="BuHaftakiFilmKullaniciNotu">
+                <ScalarProperty Name="filmnotu" ColumnName="filmnotu" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+                <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+                <ScalarProperty Name="kullanicinotid" ColumnName="kullanicinotid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuHaftakiFilmler">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.BuHaftakiFilmler">
+              <MappingFragment StoreEntitySet="BuHaftakiFilmler">
+                <ScalarProperty Name="genel_not" ColumnName="genel_not" />
+                <ScalarProperty Name="filmicerik" ColumnName="filmicerik" />
+                <ScalarProperty Name="filmresim" ColumnName="filmresim" />
+                <ScalarProperty Name="filmadi" ColumnName="filmadi" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GelecekHaftakiFilmler">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.GelecekHaftakiFilmler">
+              <MappingFragment StoreEntitySet="GelecekHaftakiFilmler">
+                <ScalarProperty Name="filmicerik" ColumnName="filmicerik" />
+                <ScalarProperty Name="filmresim" ColumnName="filmresim" />
+                <ScalarProperty Name="filmadi" ColumnName="filmadi" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Haberler">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Haberler">
+              <MappingFragment StoreEntitySet="Haberler">
+                <ScalarProperty Name="habermanset" ColumnName="habermanset" />
+                <ScalarProperty Name="habericerik" ColumnName="habericerik" />
+                <ScalarProperty Name="haberresim" ColumnName="haberresim" />
+                <ScalarProperty Name="haberadi" ColumnName="haberadi" />
+                <ScalarProperty Name="haberid" ColumnName="haberid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoriler">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Kategoriler">
+              <MappingFragment StoreEntitySet="Kategoriler">
+                <ScalarProperty Name="kategorifilmsayisi" ColumnName="kategorifilmsayisi" />
+                <ScalarProperty Name="kategoriadi" ColumnName="kategoriadi" />
+                <ScalarProperty Name="kategoriid" ColumnName="kategoriid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="kullaniciyetki" ColumnName="kullaniciyetki" />
+                <ScalarProperty Name="kullaniciemail" ColumnName="kullaniciemail" />
+                <ScalarProperty Name="kullanicisifre" ColumnName="kullanicisifre" />
+                <ScalarProperty Name="kullaniciadi" ColumnName="kullaniciadi" />
+                <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListeliFilmKategori">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.ListeliFilmKategori">
+              <MappingFragment StoreEntitySet="ListeliFilmKategori">
+                <ScalarProperty Name="kategoriid" ColumnName="kategoriid" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListeliFilmler">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.ListeliFilmler">
+              <MappingFragment StoreEntitySet="ListeliFilmler">
+                <ScalarProperty Name="filmresim" ColumnName="filmresim" />
+                <ScalarProperty Name="filmicerik" ColumnName="filmicerik" />
+                <ScalarProperty Name="filmadi" ColumnName="filmadi" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListeliFilmOyuncu">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.ListeliFilmOyuncu">
+              <MappingFragment StoreEntitySet="ListeliFilmOyuncu">
+                <ScalarProperty Name="oyuncuid" ColumnName="oyuncuid" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListeliFilmYorumları">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.ListeliFilmYorumları">
+              <MappingFragment StoreEntitySet="ListeliFilmYorumları">
+                <ScalarProperty Name="yorumid" ColumnName="yorumid" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oyuncular">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Oyuncular">
+              <MappingFragment StoreEntitySet="Oyuncular">
+                <ScalarProperty Name="oyuncuresim" ColumnName="oyuncuresim" />
+                <ScalarProperty Name="oyuncudogumtarihi" ColumnName="oyuncudogumtarihi" />
+                <ScalarProperty Name="oyuncubiyografi" ColumnName="oyuncubiyografi" />
+                <ScalarProperty Name="oyuncuadi" ColumnName="oyuncuadi" />
+                <ScalarProperty Name="oyuncuid" ColumnName="oyuncuid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yorumlar">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Yorumlar">
+              <MappingFragment StoreEntitySet="Yorumlar">
+                <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+                <ScalarProperty Name="yorumtarihi" ColumnName="yorumtarihi" />
+                <ScalarProperty Name="yorumsaati" ColumnName="yorumsaati" />
+                <ScalarProperty Name="yorum" ColumnName="yorum" />
+                <ScalarProperty Name="yorumid" ColumnName="yorumid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slider">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.Slider">
+              <MappingFragment StoreEntitySet="Slider">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="sliderresim" ColumnName="sliderresim" />
+                <ScalarProperty Name="sliderbaslik" ColumnName="sliderbaslik" />
+                <ScalarProperty Name="sliderid" ColumnName="sliderid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SliderIcerik">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.SliderIcerik">
+              <MappingFragment StoreEntitySet="SliderIcerik">
+                <ScalarProperty Name="sliderid" ColumnName="sliderid" />
+                <ScalarProperty Name="slidericerik1" ColumnName="slidericerik" />
+                <ScalarProperty Name="slidericerikresim" ColumnName="slidericerikresim" />
+                <ScalarProperty Name="slidericerikbaslik" ColumnName="slidericerikbaslik" />
+                <ScalarProperty Name="slidericerikid" ColumnName="slidericerikid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilmElestirileri">
+            <EntityTypeMapping TypeName="FilmProjesiDatabaseModel.FilmElestirileri">
+              <MappingFragment StoreEntitySet="FilmElestirileri">
+                <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+                <ScalarProperty Name="filmid" ColumnName="filmid" />
+                <ScalarProperty Name="elestiriicerik" ColumnName="elestiriicerik" />
+                <ScalarProperty Name="elestiriid" ColumnName="elestiriid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

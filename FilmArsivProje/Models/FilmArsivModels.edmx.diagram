@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e8cb5f88c46425f9d9fd5818653f7a6" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.BuHaftaFilmYorumlari" Width="1.5" PointX="9.5" PointY="6.75" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.BuHaftakiFilmKullaniciNotu" Width="1.5" PointX="16.375" PointY="6.75" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.BuHaftakiFilmler" Width="1.5" PointX="7" PointY="8.25" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.GelecekHaftakiFilmler" Width="1.5" PointX="12" PointY="6.5" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.Haberler" Width="1.5" PointX="16.875" PointY="3.625" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.Kategoriler" Width="1.5" PointX="14.75" PointY="3.5" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.Kullanicilar" Width="1.5" PointX="2.875" PointY="5.625" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.ListeliFilmKategori" Width="1.5" PointX="12" PointY="3.25" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.ListeliFilmler" Width="1.5" PointX="6.375" PointY="0.875" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.ListeliFilmOyuncu" Width="1.5" PointX="8.875" PointY="0.75" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.ListeliFilmYorumları" Width="1.5" PointX="9.5" PointY="3.75" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.Oyuncular" Width="1.5" PointX="2.75" PointY="2.375" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.sysdiagrams" Width="1.5" PointX="14" PointY="6.5" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.Yorumlar" Width="1.5" PointX="6.375" PointY="4.375" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_BuHaftaFilmYorumlari_BuHaftakiFilmler" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_BuHaftaFilmYorumlari_Yorumlar" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_BuHaftakiFilmKullaniciNotu_BuHaftakiFilmler" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_BuHaftakiFilmKullaniciNotu_Kullanicilar" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_ListeliFilmKategori_Kategoriler1" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_Yorumlar_Kullanicilar" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_ListeliFilmKategori_ListeliFilmler1" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_ListeliFilmOyuncu_ListeliFilmler" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_ListeliFilmYorumları_ListeliFilmler" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_ListeliFilmOyuncu_Oyuncular" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_ListeliFilmYorumları_Yorumlar" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.Slider" Width="1.5" PointX="14.625" PointY="0.5" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.SliderIcerik" Width="1.5" PointX="16.875" PointY="0.625" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_SliderIcerik_Slider" />
+        <EntityTypeShape EntityType="FilmProjesiDatabaseModel.FilmElestirileri" Width="1.5" PointX="12.5" PointY="0.5" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_FilmElestirileri_Kullanicilar" />
+        <AssociationConnector Association="FilmProjesiDatabaseModel.FK_FilmElestirileri_ListeliFilmler" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
